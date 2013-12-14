@@ -7,4 +7,6 @@ angular.module('ShortlyApp')
     }).success(function(data) {
       $scope.links = data;
     });
+
+    $scope.predicate = '-title';
   });
