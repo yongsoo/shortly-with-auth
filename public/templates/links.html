@@ -1,0 +1,9 @@
+<h1>links.html</h1>
+
+<ul>
+  <li ng-repeat='link in links track by link.id'>
+    <div>{{ link.title }}</div>
+    <div>{{ link.url }} - {{ link.visits }}</div>
+    <div><a ng-href="http://localhost:4567/{{ link.code }}">http://localhost:4567/{{ link.code }}</a></div>
+  </li>
+</ul>
