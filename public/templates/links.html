@@ -8,35 +8,23 @@
   </li>
 </ul> -->
 
-<!-- <input type='text' placeholder='Type here to search' />
-
-<table class="linkTable">
-  <tr>
-    <th><a href="" ng-click="predicate = 'title'; reverse=!reverse">Title</a></th>
-    <th><a href="" ng-click="predicate = 'url'; reverse=!reverse">URL</a></th>
-    <th><a href="" ng-click="predicate = 'code'; reverse=!reverse">Shortly Link</a></th>
-    <th><a href="" ng-click="predicate = 'visits'; reverse=!reverse">Visits</a></th>
-  </tr>
-  <tr ng-repeat="link in links | orderBy:predicate:reverse">
-    <td>{{link.title}}</td>
-    <td>{{link.url}}</td>
-    <td>http://localhost:4567/{{link.code}}</td>
-    <td>{{link.visits}}</td>
-  </tr>
-</table> -->
-
 <div ng-controller="MainController">
     <!-- Create a binding between the searchString model and the text field -->
     <input type="text" ng-model="searchString" placeholder="Enter your search terms" />
+
+    <a href="" ng-click="predicate = 'title'; reverse=!reverse">Sort By Title</a>
+    <a href="" ng-click="predicate = 'url'; reverse=!reverse">URL</a>
+    <a href="" ng-click="predicate = 'code'; reverse=!reverse">Shortly Link</a>
+    <a href="" ng-click="predicate = 'visits'; reverse=!reverse">Visits</a>
 
   <ul>
     <!-- Render a li element for every entry in the items array. Notice
        the custom search filter "searchFor". It takes the value of the
        searchString model as an argument.
      -->
-    <li ng-repeat="link in links | searchFor:searchString">
-      <a href="{{link.url}}">{{ link.url }}</a>
+    <li ng-repeat="link in links | searchFor:searchString | orderBy:predicate:reverse">
       <p>{{ link.title }}</p>
+      <a href="{{link.code}}">http://localhost:4567/{{link.code}}</a><span>   Visits: {{ link.visits }}</span>
     </li>
   </ul>
 </div>

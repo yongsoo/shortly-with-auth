@@ -9,9 +9,7 @@ var app = angular.module('ShortlyApp')
     });
 
     $scope.predicate = '-title';
-    $scope.filter = function() {
-
-    }
+    
   });
 
 app.filter('searchFor', function(){
